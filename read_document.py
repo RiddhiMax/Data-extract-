@@ -13,8 +13,8 @@ except Exception:
     requests = None  # The runtime that creates this file may not have requests. The user can run it locally.
 
 # Global default API settings (edit these once, then run without entering endpoint/token each time).
-DEFAULT_API_ENDPOINT = "https://api.maximizer.com/octopus/Read"
-DEFAULT_BEARER_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJteHB5MDYzcWtmOHdrczVndzVvZyIsImlhdCI6MTc3NTU3NTg2NCwiZXhwIjoxNzc4MTEyMDAwLCJteC1jaWQiOiIwN0Q0MzhCRC0xN0M3LTQwODYtQUVCQS03NTQzMUY4MTJFNEQiLCJteC13c2lkIjoiNzAzMTM1NzgtODg0Mi00RTA0LUEwNzctQzEwQUZDMkExQUQ4IiwibXgtZGIiOiJjZDFhN2NjNTVlYzI0YzNjYTBiYTFhOThlZDJhZGFiZCIsIm14LXVpZCI6Ik1BU1RFUiIsIm14LXBsIjoiY2xvdWQifQ.rokxZM_iZ-qJKTlzO7pg51iXj93FyELNw9R49PpiWvU"
+DEFAULT_API_ENDPOINT = ""
+DEFAULT_BEARER_TOKEN = ""
 
 # Rate limiting: delay between requests and after batches to avoid overwhelming the API
 # The API enforces roughly 30 requests per 60 seconds, so we need at least ~2 seconds per request.
