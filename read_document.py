@@ -12,7 +12,7 @@ try:
 except Exception:
     requests = None  # The runtime that creates this file may not have requests. The user can run it locally.
 
-# Global default API settings (edit these once, then run without entering endpoint/token each time).
+# Global default API settings 
 DEFAULT_API_ENDPOINT = ""
 DEFAULT_BEARER_TOKEN = ""
 
