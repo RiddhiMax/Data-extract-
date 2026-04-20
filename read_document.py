@@ -48,8 +48,7 @@ def load_abentries(path: Path) -> List[Dict[str, Any]]:
                 nested = data[key].get("Data")
                 if isinstance(nested, list):
                     return nested  # type: ignore
-        # Maybe it's a single object
-        # Heuristically treat it as a singleton list if it has a "Key"
+        
         if "Key" in data:
             return [data]  # type: ignore
 
@@ -102,7 +101,7 @@ def call_api(
 
     headers = {"Content-Type": "application/json"}
     if token:
-        # Add your scheme as needed (Bearer, Basic, etc.). Assuming Bearer here.
+        
         headers["Authorization"] = f"Bearer {token}"
 
     for attempt in range(1, MAX_RETRIES + 1):
@@ -210,7 +209,7 @@ def main():
             print(f"[{idx}/{len(abentries)}] Error fetching documents for Key={parent_key}: {e}", file=sys.stderr)
             continue
 
-        # Print a concise summary to stdout
+        
         print(f"[{idx}/{len(abentries)}] Key={parent_key}: {len(docs)} document(s)")
         for d in docs:
             name = d.get("Name", "<no name>")
@@ -232,14 +231,8 @@ def main():
             print(f"Reached docs-limit: {entries_with_docs} entries with documents.", file=sys.stderr)
             break
 
-    # Optionally write to a JSON file
-    if args.out:
-        out_path = Path(args.out)
-        with out_path.open("w", encoding="utf-8") as f:
-            json.dump({"Results": results}, f, ensure_ascii=False, indent=2)
-        print(f"\nSaved results to: {out_path.resolve()}")
 
-    # Always save CSV with parent and document keys (or use custom path if specified)
+    # Always save CSV with parent and document keys 
     csv_path_str = args.csv or "documents_results.csv"
     csv_path = Path(csv_path_str)
     with csv_path.open('w', encoding='utf-8', newline='') as f:
