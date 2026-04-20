@@ -5,8 +5,8 @@ import base64
 from pathlib import Path
 
 # --- CONFIG ---
-BASE_URL = "https://api.maximizer.com/octopus/BinaryDownload/"
-TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJteHA0MW9xbm92emppcnZvN3JweCIsImlhdCI6MTc3Mzg1ODk0MywiZXhwIjoxODA1MzI4MDAwLCJteC1jaWQiOiIzMEVBNDQ5Qi1DQjYwLTRFREMtOUJDNi02N0RENjUxQkZDMDUiLCJteC13c2lkIjoiMUI1OTVDOTMtNkJBNi00QkNELUI0NDQtNzI5Q0IxNzEzMUQ2IiwibXgtZGIiOiIxYzVkZGFhMDVmZGQ0YWRiYWE5MjRkZjQxYzM1NGFkOCIsIm14LXVpZCI6Ik1BU1RFUiIsIm14LXBsIjoiY2xvdWQifQ.bs1CbWoucmplOmz04z4wSp5dUCgf_OW2WHV49PXmXjw"  # <-- Fill in your Bearer token here
+BASE_URL = ""
+TOKEN = ""  
 CSV_PATH = "documents_results.csv"  # Input CSV file
 OUTPUT_DIR = "downloads"  # All folders will be created inside this directory
 
@@ -34,7 +34,7 @@ def decode_base64_key(encoded_key):
 
 def sanitize_folder_name(folder_name):
     """Sanitize folder name by removing/replacing invalid Windows characters."""
-    # Invalid characters for Windows: < > : " / \ | ? * and control characters (tab, newline, etc)
+   
     invalid_chars = '<>:"/\\|?*\t\n\r\x00'
     for char in invalid_chars:
         folder_name = folder_name.replace(char, '_')
